@@ -33,7 +33,7 @@ RSpec.configure do |config|
   config.include Shoulda::Matchers::ActiveRecord, type: :model
   config.include Shoulda::Matchers::ActiveModel, type: :model
 
-  config.before(:each, type: :search_request) do
+  config.before(:each, type: :request) do
     Chewy.strategy(:bypass)
     unless Elasticsearch::Extensions::Test::Cluster.running?(on: 9250)
       Elasticsearch::Extensions::Test::Cluster.start(
